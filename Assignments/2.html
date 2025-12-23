@@ -1,0 +1,218 @@
+<!-- Contact FORM -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Contact Form</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* CSS Variables for easy color management */
+    :root {
+        --primary-color: #6366f1; /* Indigo */
+        --primary-hover: #4f46e5;
+        --text-dark: #1f2937;
+        --text-light: #6b7280;
+        --input-bg: #f9fafb;
+        --input-border: #e5e7eb;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif; /* Modern font */
+      background-color: #f3f4f6;
+      /* Subtle gradient background instead of flat gray */
+      background-image: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+      margin: 0;
+      padding: 20px;
+      color: var(--text-dark);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 450px; /* Slightly wider */
+      background-color: #fff;
+      padding: 40px; /* More breathing room */
+      border-radius: 16px; /* Softer, rounder corners */
+      /* A softer, deeper shadow for a "floating" effect */
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+
+    /* Grouping labels and inputs for better spacing control */
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: var(--text-dark);
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 12px 15px; /* Larger, comfortable hit area */
+      border: 2px solid var(--input-border); /* Subtle border */
+      border-radius: 8px;
+      box-sizing: border-box;
+      background-color: var(--input-bg); /* Slight off-white background */
+      font-family: inherit; /* Ensure inputs use Poppins */
+      font-size: 0.95rem;
+      transition: all 0.3s ease; /* Smooth transition for focus state */
+    }
+
+    /* The important "Focus State" - when user clicks input */
+    input:focus, textarea:focus, select:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        background-color: #fff;
+        /* A subtle glowing ring effect */
+        box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+    }
+
+    textarea {
+      height: 100px;
+      resize: vertical;
+    }
+
+    .radio-group {
+      margin-bottom: 25px;
+    }
+
+    .radio-options {
+        display: flex;
+        gap: 20px;
+        margin-top: 10px;
+    }
+
+    .radio-group label.radio-label {
+      font-weight: normal;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    /* Modern way to color radio buttons */
+    input[type="radio"] {
+        accent-color: var(--primary-color);
+        margin-right: 8px;
+        transform: scale(1.1);
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+    }
+
+    button:hover {
+      background-color: var(--primary-hover);
+      transform: translateY(-2px); /* Subtle lift effect */
+      box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4); /* Shadow on hover */
+    }
+
+    /* Placeholder text color */
+    ::placeholder {
+        color: #a0aec0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Get in Touch</h2>
+    <form>
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" placeholder="Jane" required>
+      </div>
+
+      <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" placeholder="Doe" required>
+      </div>
+
+      <div class="form-group">
+          <label>E-Mail</label>
+          <input type="email" placeholder="jane@example.com" required>
+      </div>
+
+      <div class="form-group">
+          <label>Phone #</label>
+          <input type="tel" placeholder="+91 99999 xxxxx">
+      </div>
+
+      <div class="form-group">
+          <label>Address</label>
+          <input type="text" placeholder="Street Address">
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+        <div class="form-group">
+            <label>City</label>
+            <input type="text" placeholder="City">
+        </div>
+        <div class="form-group">
+            <label>Zip Code</label>
+            <input type="number" placeholder="120765">
+        </div>
+      </div>
+
+      <div class="form-group">
+          <label>State</label>
+          <select>
+            <option value="">Select state</option>
+            <option>Uttar Pradesh</option>
+            <option>Delhi</option>
+            <option>Maharashtra</option>
+            <option>Bihar</option>
+          </select>
+      </div>
+
+      <div class="form-group">
+          <label>Website URL</label>
+          <input type="text" placeholder="https://yourwebsite.com">
+      </div>
+
+      <div class="radio-group">
+        <label style="font-weight: 600;">Do you have hosting?</label>
+        <div class="radio-options">
+            <label class="radio-label"><input type="radio" name="hosting" value="yes"> Yes</label>
+            <label class="radio-label"><input type="radio" name="hosting" value="no" checked> No</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+          <label>Project Description</label>
+          <textarea placeholder="Tell us about your project..."></textarea>
+      </div>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</body>
+</html>

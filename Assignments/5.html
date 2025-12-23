@@ -1,0 +1,193 @@
+<!-- restaurent menu -->
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bistro Elegante</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #d4af37;
+            --dark: #1a1a1a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #111;
+            color: #fff;
+        }
+
+        /* Elegant Centered Nav */
+        nav {
+            background-color: #000;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #333;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover { color: var(--gold); }
+
+        /* Parallax Hero Section */
+        .parallax {
+            /* Using a dark gradient over a placeholder image */
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            height: 60vh;
+            background-attachment: fixed; /* The Parallax Effect */
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-style: italic;
+            color: var(--gold);
+        }
+        
+        .subtitle { letter-spacing: 5px; text-transform: uppercase; margin-top: 10px; }
+
+        /* Menu Section */
+        .menu-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            background-color: #111;
+        }
+
+        .category-header {
+            text-align: center;
+            margin-bottom: 50px;
+            font-family: 'Playfair Display', serif;
+            color: var(--gold);
+            font-size: 2.5rem;
+        }
+
+        /* Grid for Menu Items */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .menu-item {
+            border-bottom: 1px solid #333;
+            padding-bottom: 20px;
+        }
+
+        .item-head {
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+
+        .price { color: var(--gold); }
+        .description { color: #888; font-style: italic; }
+
+        /* Reservation Footer */
+        .reservation {
+            background-color: #1a1a1a;
+            padding: 60px;
+            text-align: center;
+        }
+        
+        button {
+            background: var(--gold);
+            border: none;
+            padding: 15px 40px;
+            font-family: 'Lato';
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+
+        button:hover { background: #fff; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#starters">Starters</a>
+        <a href="#mains">Mains</a>
+        <a href="#drinks">Drinks</a>
+        <a href="#book">Book a Table</a>
+    </nav>
+
+    <header class="parallax">
+        <h1>Bistro Elegante</h1>
+        <p class="subtitle">Fine Dining Experience</p>
+    </header>
+
+    <div class="menu-container" id="starters">
+        <h2 class="category-header">Starters</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <div class="item-head">
+                    <span>Truffle Arancini</span>
+                    <span class="price">$12</span>
+                </div>
+                <p class="description">Wild mushroom risotto balls, truffle aioli, parmesan dust.</p>
+            </div>
+            <div class="menu-item">
+                <div class="item-head">
+                    <span>Burrata & Fig</span>
+                    <span class="price">$16</span>
+                </div>
+                <p class="description">Fresh burrata, caramelized figs, balsamic glaze, toasted walnuts.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu-container" id="mains">
+        <h2 class="category-header">Mains</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <div class="item-head">
+                    <span>Wagyu Beef Burger</span>
+                    <span class="price">$24</span>
+                </div>
+                <p class="description">Brioche bun, aged cheddar, bacon jam, truffle fries.</p>
+            </div>
+            <div class="menu-item">
+                <div class="item-head">
+                    <span>Pan Seared Scallops</span>
+                    <span class="price">$28</span>
+                </div>
+                <p class="description">Cauliflower puree, crispy pancetta, lemon butter emulsion.</p>
+            </div>
+        </div>
+    </div>
+
+    <section class="reservation" id="book">
+        <h2 style="font-family: 'Playfair Display'; margin-bottom: 20px;">Join Us Tonight</h2>
+        <p>Reservations recommended for weekends.</p>
+        <button>Make a Reservation</button>
+    </section>
+
+</body>
+</html>

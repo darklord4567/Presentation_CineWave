@@ -1,0 +1,209 @@
+<!-- sample product landing page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberGear X1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon: #00f3ff;
+            --purple: #bc13fe;
+            --bg: #0a0a0a;
+            --text: #e0e0e0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* Nav */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: rgba(10, 10, 10, 0.9);
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            border-bottom: 1px solid #333;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            color: white;
+            letter-spacing: 2px;
+        }
+
+        .nav-items a {
+            color: #aaa;
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .nav-items a:hover { color: var(--neon); text-shadow: 0 0 10px var(--neon); }
+
+        /* Hero */
+        header {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
+            padding-top: 60px;
+        }
+
+
+        .gradient-text-svg {
+            width: 100%;
+            max-width: 800px; /* Limits width so it doesn't get huge */
+            height: auto;
+            display: block;
+            margin: 0 auto 10px auto;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+        }
+
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: #888;
+            margin-bottom: 30px;
+        }
+
+        /* Glowing Button */
+        .cta-btn {
+            padding: 15px 40px;
+            background: transparent;
+            border: 2px solid var(--neon);
+            color: var(--neon);
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.4s;
+            position: relative;
+            overflow: hidden;
+            display: inline-block; /* Fixes padding issues on anchor tags */
+        }
+
+        .cta-btn:hover {
+            background: var(--neon);
+            color: black;
+            box-shadow: 0 0 20px var(--neon);
+        }
+
+        /* Floating Animation Box */
+        .product-visual {
+            width: 300px;
+            height: 300px;
+            margin: 40px auto;
+            background: linear-gradient(45deg, var(--neon), var(--purple));
+            border-radius: 20px;
+            animation: float 4s ease-in-out infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: black;
+            font-weight: bold;
+            font-family: 'Orbitron';
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Features Section */
+        #features {
+            padding: 80px 50px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .feature-card {
+            background: #111;
+            padding: 30px;
+            width: 300px;
+            border: 1px solid #333;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: var(--purple);
+            transform: scale(1.05);
+        }
+
+        .feature-card h3 { color: white; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">CYBERGEAR</div>
+        <div class="nav-items">
+            <a href="#specs">Specs</a>
+            <a href="#features">Features</a>
+            <a href="#buy">Pre-Order</a>
+        </div>
+    </nav>
+
+    <header>
+        <div class="hero-content">
+            
+            <svg class="gradient-text-svg" viewBox="0 0 500 60" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="neonGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color: #00f3ff; stop-opacity: 1" />
+                        <stop offset="100%" style="stop-color: #bc13fe; stop-opacity: 1" />
+                    </linearGradient>
+                </defs>
+                <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="url(#neonGradient)" font-size="45">
+                    THE FUTURE IS HERE
+                </text>
+            </svg>
+
+            <p>Next Gen Haptic Feedback VR Suit</p>
+            
+            <div class="product-visual">
+                PRODUCT IMG
+            </div>
+
+            <a href="#" class="cta-btn">Initialize</a>
+        </div>
+    </header>
+
+    <section id="features">
+        <div class="feature-card">
+            <h3>Zero Latency</h3>
+            <p>Real-time feedback loops for instant immersion.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Haptic Mesh</h3>
+            <p>Feel every raindrop and explosion.</p>
+        </div>
+        <div class="feature-card">
+            <h3>12h Battery</h3>
+            <p>Long lasting power for extended sessions.</p>
+        </div>
+    </section>
+
+</body>
+</html>

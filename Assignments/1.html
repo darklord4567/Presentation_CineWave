@@ -1,0 +1,241 @@
+<!-- Login page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* CSS VARIABLES used for consistent theming */
+        :root {
+            --primary: #4f46e5; /* Indigo */
+            --primary-hover: #4338ca;
+            --text-dark: #111827;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            height: 100vh;
+            overflow: hidden; /* Prevents double scrollbars */
+        }
+
+        /* --- NAVIGATION BAR --- */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10; /* Ensures nav sits on top of everything */
+            background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, transparent 100%);
+        }
+
+        .brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Adjust brand color on smaller screens where it sits over white bg */
+        @media (max-width: 768px) { .brand { color: var(--primary); } }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            margin-left: 25px;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        
+        /* Adjust link color on mobile */
+        @media (max-width: 768px) { .nav-links a { color: var(--text-dark); } }
+        .nav-links a:hover { color: var(--primary); }
+
+        /* --- MAIN SPLIT LAYOUT --- */
+        .split-container {
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Left Side - The Visual */
+        .visual-side {
+            flex: 1; /* Takes 50% width */
+            /* Using a high-quality Unsplash image */
+            background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 50px;
+        }
+
+        /* Dark gradient overlay so text pops */
+        .visual-side::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.2));
+        }
+
+        .visual-text {
+            position: relative; /* To sit above the overlay */
+            color: white;
+            max-width: 400px;
+        }
+
+        .visual-text h1 { font-size: 3rem; line-height: 1.2; margin-bottom: 20px; }
+        .visual-text p { font-size: 1.1rem; opacity: 0.9; }
+
+        /* Right Side - The Form */
+        .form-side {
+            flex: 1; /* Takes 50% width */
+            background-color: var(--bg-light);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .form-box {
+            width: 100%;
+            max-width: 400px;
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .form-box h2 { margin-bottom: 10px; color: var(--text-dark); }
+        .form-box .sub-text { color: var(--text-light); margin-bottom: 30px; font-size: 0.9rem; }
+
+        /* Form Inputs Styling */
+        .input-group { margin-bottom: 20px; }
+        .input-group label { display: block; margin-bottom: 8px; font-weight: 500; color: var(--text-dark); font-size: 0.9rem;}
+        
+        .input-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .login-btn:hover { background-color: var(--primary-hover); }
+
+        .form-footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        .form-footer a { color: var(--primary); text-decoration: none; font-weight: 500; }
+
+        /* --- RESPONSIVE DESIGN --- */
+        /* On tablets and mobile phones (< 768px width) */
+        @media (max-width: 768px) {
+            body { overflow: auto; } /* Allow scrolling on mobile */
+            .split-container {
+                flex-direction: column; /* Stack items vertically */
+                height: auto; /* Remove fixed 100vh height */
+            }
+            
+            /* Make visual side a header on mobile */
+            .visual-side {
+                height: 250px; /* Fixed short height */
+                padding: 30px;
+                align-items: flex-end; /* Align text to bottom */
+            }
+            .visual-text h1 { font-size: 1.8rem; margin-bottom: 5px;}
+            .visual-text p { display: none; /* Hide paragraph on mobile to save space */ }
+
+            /* Give form side room to breathe */
+            .form-side { padding: 40px 20px; }
+            
+            /* Adjust nav padding */
+            nav { padding: 15px 20px; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="brand">Portal.</div>
+        <div class="nav-links">
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <a href="#" style="color: var(--primary);">Sign Up</a>
+        </div>
+    </nav>
+
+    <div class="split-container">
+        
+        <div class="visual-side">
+            <div class="visual-text">
+                <h1>Welcome back to the future.</h1>
+                <p>Log in to access your dashboard, manage projects, and collaborate with your team.</p>
+            </div>
+        </div>
+
+        <div class="form-side">
+            <div class="form-box">
+                <h2>Sign In</h2>
+                <p class="sub-text">Please enter your credentials to continue.</p>
+                
+                <form>
+                    <div class="input-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="name@company.com" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="••••••••" required>
+                    </div>
+
+                    <button type="submit" class="login-btn">Log In →</button>
+                </form>
+
+                <div class="form-footer">
+                    <p>Don't have an account? <a href="#">Create one now</a></p>
+                    <p style="margin-top: 10px;"><a href="#" style="color: var(--text-light); font-size: 0.85rem;">Forgot password?</a></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
